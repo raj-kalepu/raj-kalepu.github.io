@@ -1,356 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalepu Gowtham Raj - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; 
-            color: #374151; 
-            line-height: 1.6;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #9ca3af;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
-        }
-        .section-gradient {
-            background: linear-gradient(to right, #ffffff, #f9fafb); 
-        }
-        .hero-gradient {
-            background: linear-gradient(to right, #4f46e5, #7c3aed); 
-        }
-        .skill-badge {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        .skill-badge:hover {
-            transform: translateY(-4px) scale(1.02); 
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
-            background-color: #4f46e5; 
-            color: #ffffff;
-        }
-        .project-card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
-        }
-        .project-card:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
-        }
-        .btn-primary {
-            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-full shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-300 transform hover:scale-105;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #4f46e5;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 9999px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: none;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            z-index: 1000;
-        }
-        .back-to-top.show {
-            display: flex;
-            opacity: 1;
-        }
-        .back-to-top:hover {
-            background-color: #3730a3;
-            transform: translateY(-3px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gowtham Raj Kalepu — Software Developer specializing in Python, Django, Backend Engineering, and AI-powered applications. Based in Hyderabad, India." />
+  <meta name="keywords" content="Gowtham Raj Kalepu, Software Developer, Python Developer, Django Developer, Backend Developer, AI Engineer, Hyderabad" />
+  <meta name="author" content="Gowtham Raj Kalepu" />
+  <meta property="og:title" content="Gowtham Raj Kalepu — Software Developer" />
+  <meta property="og:description" content="Python · Django · Backend · AI Engineering" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://raj-kalepu.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Gowtham Raj Kalepu — Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="antialiased">
-    <!-- Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 w-full bg-white shadow-md py-4">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold text-gray-900">Kalepu Gowtham Raj</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">About</a>
-                <a href="#education" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Education</a>
-                <a href="#skills" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Skills</a>
-                <a href="#experience" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Experience</a>
-                <a href="#projects" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Projects</a>
-                <a href="#certifications" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Certifications</a>
-                <a href="#accomplishments" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Accomplishments</a>
-                <a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Contact</a>
-            </div>
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-indigo-600 focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-4 space-y-2">
-            <a href="#about" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">About</a>
-            <a href="#education" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Education</a>
-            <a href="#skills" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Skills</a>
-            <a href="#experience" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Experience</a>
-            <a href="#projects" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Projects</a>
-            <a href="#certifications" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Certifications</a>
-            <a href="#accomplishments" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Accomplishments</a>
-            <a href="#contact" class="block text-gray-700 hover:text-indigo-600 font-medium transition duration-150">Contact</a>
-        </div>
-    </nav>
+<body>
 
-    <div class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
-        <!-- Hero Section -->
-        <section class="w-full max-w-6xl hero-gradient rounded-xl shadow-lg p-8 md:p-12 mb-12 text-white text-center">
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
-                <!-- Placeholder for Profile Picture -->
-                <div class="w-36 h-36 md:w-48 md:h-48 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden shadow-xl border-4 border-white">
-                    <img src="IMG-20240912-WA0344.jpg" alt="Profile Picture" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 animate-fade-in-down">
-                        KALEPU GOWTHAM RAJ
-                    </h1>
-                    <p class="text-xl sm:text-2xl font-light mb-6">
-                        Software Developer | B.Tech Mech 2025 | Python & Android Enthusiast
-                    </p>
-                    <div class="flex justify-center space-x-6 mt-4">
-                        <a href="https://www.linkedin.com/in/gowthamrajkalepu" target="_blank" class="text-white hover:text-indigo-200 transition duration-150">
-                            <i class="fab fa-linkedin text-3xl"></i>
-                        </a>
-                        <a href="https://github.com/raj-kalepu" target="_blank" class="text-white hover:text-indigo-200 transition duration-150">
-                            <i class="fab fa-github text-3xl"></i>
-                        </a>
-                        <a href="https://raj-kalepu.github.io" target="_blank" class="text-white hover:text-indigo-200 transition duration-150">
-                            <i class="fas fa-globe text-3xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Main Content Area -->
-        <main class="w-full max-w-6xl space-y-12">
-            <!-- About/Objective Section -->
-            <section id="about" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">About Me</h2>
-                <p class="text-gray-700 leading-relaxed text-lg max-w-3xl mx-auto text-justify">
-                    A passionate B.Tech Mechanical Engineering graduate with hands-on experience in software development and machine learning.
-                    Proficient in Python, Java, HTML, CSS, and JavaScript. I thrive on building impactful tech solutions, from full-stack web applications
-                    to optimizing 3D printing processes using advanced ML models. My strong analytical skills drive me to constantly learn and innovate.
-                </p>
-            </section>
-
-            <!-- Education Section -->
-            <section id="education" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Education</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <!-- Left column for timeline entries -->
-                    <div class="md:col-span-1">
-                        <div class="relative pl-8 border-l-4 border-indigo-500">
-
-                            <div class="relative mb-8">
-                                <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-10 top-0"></div> 
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-2">B.Tech in Mechanical Engineering</h3>
-                                <p class="text-gray-700 text-lg">Geethanjali College of Engineering and Technology</p>
-                                <p class="text-gray-600 text-md">2021-2025</p>
-                                <p class="text-gray-600 text-md">7.5 CGPA</p>
-                            </div>
-
-                            <div class="relative mb-8">
-                                <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-10 top-0"></div> 
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Narayana Junior College - India</h3>
-                                <p class="text-gray-700 text-lg">Intermediate</p>
-                                <p class="text-gray-600 text-md">2019 - 2021</p>
-                                <p class="text-gray-600 text-md">85.6%</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-10 top-0"></div> 
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Ratnam High School</h3>
-                                <p class="text-gray-700 text-lg">X Class SSC</p>
-                                <p class="text-gray-600 text-md">9.5 CGPA</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Right column for icon -->
-                    <div class="md:col-span-1 flex justify-center md:justify-end md:items-center">
-                        <i class="fas fa-graduation-cap text-6xl text-indigo-500"></i>
-                    </div>
-                </div>
-            </section>
-            
-
-            <!-- Skills Section -->
-            <section id="skills" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Skills</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="skill-badge bg-blue-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Python</span>
-                    <span class="skill-badge bg-orange-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Java</span>
-                    <span class="skill-badge bg-yellow-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">HTML</span>
-                    <span class="skill-badge bg-blue-600 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">CSS</span>
-                    <span class="skill-badge bg-yellow-400 text-gray-800 text-lg font-medium px-5 py-2 rounded-full shadow-md">JavaScript</span>
-                    <span class="skill-badge bg-purple-600 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Machine Learning</span>
-                    <span class="skill-badge bg-green-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Django</span>
-                    <span class="skill-badge bg-blue-700 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">MySQL</span>
-                    <span class="skill-badge bg-gray-700 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">REST APIs</span>
-                    <span class="skill-badge bg-teal-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">UI/UX Design</span>
-                    <span class="skill-badge bg-red-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">SVR</span>
-                    <span class="skill-badge bg-indigo-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Tailwind CSS</span>
-                    <span class="skill-badge bg-fuchsia-500 text-white text-lg font-medium px-5 py-2 rounded-full shadow-md">Figma</span>
-                    
-                </div>
-                
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Experience</h2>
-                <div class="relative pl-8 border-l-4 border-indigo-500">
-                    <div class="absolute w-4 h-4 bg-indigo-500 rounded-full -left-2 top-0"></div>
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-semibold text-gray-800">SDE Intern - Bluestock Fintech</h3>
-                        <p class="text-gray-600 text-lg mb-3">Feb 2025 - Mar 2025</p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Improved technical skills in HTML, CSS, and JavaScript, applying modern web development practices.</li>
-                            <li>Implemented best practices in the design of the user interface to significantly enhance user experience.</li>
-                            <li>Successfully integrated REST APIs to seamlessly connect the front end with robust back-end services.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">SpendWise</h3>
-                        <p class="text-gray-700 text-sm mb-4 flex-grow">
-                            A user-friendly web application designed to simplify personal finance management. It allows users to track income and expenses, set budgets, manage loans, and gain valuable insights into their spending habits. Built with HTML, CSS, JavaScript (frontend), Python (Django, backend), and MySQL (database).
-                        </p>
-                        <a href="https://spendwise-beryl.vercel.app" target="_blank" class="text-blue-600 hover:underline text-sm font-medium mt-auto">
-                            <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                        </a>
-                    </div>
-
-                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">OptiFab</h3>
-                        <p class="text-gray-700 text-sm mb-4 flex-grow">
-                            An ML model developed using experimental data from 3D-printed specimens to model and predict mechanical performance. Applied Support Vector Regression (SVR) with Leave-One-Out Cross-Validation (LOOCV), feature engineering, and ranking techniques (GRA, DEAR) to identify and optimize influential print parameters.
-                        </p>
-                        <a href="https://github.com/raj-kalepu/OptiFab" target="_blank" class="text-blue-600 hover:underline text-sm font-medium mt-auto">
-                            <i class="fab fa-github mr-1"></i> GitHub Repo
-                        </a>
-                    </div>
-
-                    <div class="project-card bg-white rounded-lg shadow-md p-6 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Password Manager</h3>
-                        <p class="text-gray-700 text-sm mb-4 flex-grow">
-                            A Python-based application that verifies the master key for authentication. Enables users to add, retrieve, and organize passwords for different websites and usernames. Automatically generates strong, unique passwords to improve security.
-                        </p>
-                        <a href="https://github.com/raj-kalepu/Password-Manager" target="_blank" class="text-blue-600 hover:underline text-sm font-medium mt-auto">
-                            <i class="fab fa-github mr-1"></i> GitHub Repo
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Certifications Section -->
-            <section id="certifications" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
-                <ul class="list-none text-gray-700 space-y-3 text-lg max-w-2xl mx-auto text-justify">
-                    <li><i class="fas fa-award text-indigo-500 mr-2"></i>Deloitte Australia Technology Job Simulation certificate from Forage</li>
-                    <li><i class="fas fa-award text-indigo-500 mr-2"></i>Machine Learning with Python Course completion certificate from Cognitiveclass.ai</li>
-                </ul>
-            </section>
-
-            <!-- Accomplishments Section -->
-            <section id="accomplishments" class="section-gradient shadow-lg rounded-xl p-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Accomplishments</h2>
-                <ul class="list-none text-gray-700 space-y-3 text-lg max-w-3xl mx-auto text-justify">
-                    <li><i class="fas fa-trophy text-indigo-500 mr-2"></i>Presented a research paper titled "Fabrication of Virgin and Recycled PLA Components Using FDM and Their Properties" at the All India Seminar on Green Sustainable Production Practices for Futuristic Industries, a two-day national-level event.</li>
-                    <li><i class="fas fa-trophy text-indigo-500 mr-2"></i>Event Coordinator, Bhaswara-2024: Served as the departmental coordinator for the two-day technical fest organized at college, overseeing event planning, coordination, and execution.</li>
-                </ul>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="section-gradient shadow-lg rounded-xl p-8 text-center">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Get In Touch</h2>
-                <p class="text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
-                    Have a question, a project idea, or want to discuss anything? Feel free to reach out! I'm always open to new opportunities and collaborations.
-                </p>
-                <a href="mailto:gowthamrajkalepu@gmail.com" class="btn-primary">
-                    <i class="fas fa-envelope mr-2"></i> Email Me
-                </a>
-            </section>
-        </main>
-
-        <!-- Footer Section -->
-        <footer><br><br>
-            <p>&copy; - Kalepu Gowtham Raj</p>
-        </footer>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">GRK</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>
+  </div>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top items-center justify-center">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
+  <!-- Custom Cursor -->
+  <div id="cursor" class="cursor" aria-hidden="true"></div>
+  <div id="cursor-follower" class="cursor-follower" aria-hidden="true"></div>
 
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+  <!-- Navbar -->
+  <header id="navbar" class="navbar" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#home" class="nav-logo" aria-label="Gowtham Raj Kalepu home">
+        <span class="logo-text">GRK</span>
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="assets/resume.pdf" class="btn-nav-resume" download aria-label="Download Resume">Resume ↗</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#experience" class="mobile-link">Experience</a></li>
+        <li><a href="#projects" class="mobile-link">Projects</a></li>
+        <li><a href="#education" class="mobile-link">Education</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+        <li><a href="assets/resume.pdf" class="mobile-link resume-mobile" download>Download Resume</a></li>
+      </ul>
+    </div>
+  </header>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero" aria-label="Hero">
+      <!-- Animated background blobs -->
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+      <div class="blob blob-3" aria-hidden="true"></div>
+      <!-- Particles -->
+      <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-        // Back to Top button functionality
-        const backToTopButton = document.getElementById('back-to-top');
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow reveal-up">
+            <span class="eyebrow-dot"></span>
+            <span>Available for opportunities</span>
+          </div>
+          <h1 class="hero-title reveal-up">
+            <span class="hero-greeting">Hello, I'm</span>
+            <span class="hero-name">Gowtham Raj<br/>Kalepu</span>
+          </h1>
+          <div class="hero-role reveal-up">
+            <span class="role-prefix">I'm a </span>
+            <span id="typed-text" class="typed-text" aria-live="polite"></span>
+            <span class="cursor-blink" aria-hidden="true">|</span>
+          </div>
+          <p class="hero-summary reveal-up">
+            Software Developer with around one year of professional experience building scalable web applications, REST APIs, backend systems, and AI-powered solutions using Python, Django, JavaScript, and modern development tools.
+          </p>
+          <div class="hero-cta reveal-up">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="assets/resume.pdf" class="btn btn-outline" download>Download Resume</a>
+            <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          </div>
+          <div class="hero-socials reveal-up">
+            <a href="https://linkedin.com/in/gowthamrajkalepu" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/raj-kalepu" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="mailto:gowthamrajkalepu@gmail.com" class="social-icon" aria-label="Email Gowtham">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual reveal-right" aria-hidden="true">
+          <div class="hero-code-card">
+            <div class="code-card-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="code-filename">gowtham.py</span>
+            </div>
+            <pre class="code-body"><code><span class="code-keyword">class</span> <span class="code-class">SoftwareDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self):
+        self.name  = <span class="code-str">"Gowtham Raj Kalepu"</span>
+        self.role  = <span class="code-str">"Software Developer"</span>
+        self.stack = [
+            <span class="code-str">"Python"</span>, <span class="code-str">"Django"</span>,
+            <span class="code-str">"REST APIs"</span>, <span class="code-str">"MySQL"</span>,
+            <span class="code-str">"JavaScript"</span>, <span class="code-str">"AI"</span>
+        ]
+        self.location = <span class="code-str">"Hyderabad 🇮🇳"</span>
+        self.open_to  = <span class="code-str">"new opportunities"</span>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Show button after scrolling 300px
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
+    <span class="code-keyword">def</span> <span class="code-func">build</span>(self, idea):
+        <span class="code-keyword">return</span> Ship(
+            backend=<span class="code-str">"Django + DRF"</span>,
+            db=<span class="code-str">"MySQL"</span>,
+            ai=<span class="code-str">"LLM + RAG"</span>
+        )
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+me = <span class="code-class">SoftwareDeveloper</span>()
+me.build(<span class="code-str">"your next idea"</span>)</code></pre>
+          </div>
+          <div class="float-badge badge-python">
+            <span>🐍</span> Python
+          </div>
+          <div class="float-badge badge-django">
+            <span>🌐</span> Django
+          </div>
+          <div class="float-badge badge-ai">
+            <span>🤖</span> AI/ML
+          </div>
+        </div>
+      </div>
+      <!-- Scroll indicator -->
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+        <span class="scroll-text">Scroll</span>
+        <span class="scroll-arrow"></span>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Get to know me</span>
+          <h2 id="about-heading" class="section-title">About Me</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal-left">
+            <p>I am a Software Developer with around one year of professional experience in backend development, full-stack web development, API integration, software testing, and AI-powered application development.</p>
+            <p>I specialize in building scalable applications using <strong>Python, Django, Django REST Framework, MySQL, JavaScript, HTML, and CSS</strong>.</p>
+            <p>I enjoy solving real-world problems by designing efficient backend systems, developing clean REST APIs, integrating AI capabilities, and creating responsive user experiences. I believe in writing maintainable, production-ready code and continuously learning new technologies.</p>
+            <div class="about-tags">
+              <span class="tag">Backend Development</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">AI Engineering</span>
+              <span class="tag">Full Stack</span>
+              <span class="tag">Django</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+          <div class="about-stats reveal-right">
+            <div class="stat-card">
+              <div class="stat-number" data-target="1">0</div>
+              <div class="stat-label">Year Experience</div>
+              <div class="stat-sublabel">Professional</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="5">0</div>
+              <div class="stat-label">Projects Built</div>
+              <div class="stat-sublabel">& Deployed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Technologies</div>
+              <div class="stat-sublabel">Mastered</div>
+            </div>
+            <div class="stat-card stat-wide">
+              <div class="stat-domains">Backend · Full Stack · AI</div>
+              <div class="stat-label">Domains</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="what-i-do" class="section what-i-do" aria-labelledby="what-i-do-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Expertise</span>
+          <h2 id="what-i-do-heading" class="section-title">What I Do</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-up" style="--delay:0s">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" class="service-icon-main"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/><polyline points="9 9 12 12 15 9"/></svg>
+            </div>
+            <h3 class="service-title">Python Development</h3>
+            <p class="service-desc">Develop scalable backend applications using Python while following clean architecture and best coding practices.</p>
+            <div class="service-accent"></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.1s">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" class="service-icon-main"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="service-title">Django Development</h3>
+            <p class="service-desc">Build secure, production-ready web applications and REST APIs using Django and Django REST Framework.</p>
+            <div class="service-accent"></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.2s">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" class="service-icon-main"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3 class="service-title">AI Engineering</h3>
+            <p class="service-desc">Develop AI-powered applications using LLMs, prompt engineering, AI APIs, and intelligent automation workflows.</p>
+            <div class="service-accent"></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.3s">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" class="service-icon-main"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h10M7 11h6"/></svg>
+            </div>
+            <h3 class="service-title">Backend Engineering</h3>
+            <p class="service-desc">Design scalable backend architectures, optimize databases, develop REST APIs, and improve application performance.</p>
+            <div class="service-accent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Technical Depth</span>
+          <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
+        </div>
+
+        <div class="skills-tabs reveal-up" role="tablist" aria-label="Skill categories">
+          <button class="skill-tab active" role="tab" aria-selected="true" data-tab="languages">Languages</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="backend">Backend</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="frontend">Frontend</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="database">Database</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="ai">AI / ML</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="tools">Tools</button>
+          <button class="skill-tab" role="tab" aria-selected="false" data-tab="swe">Engineering</button>
+        </div>
+
+        <div class="skills-panels">
+
+          <div class="skill-panel active" data-panel="languages" role="tabpanel">
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🐍</span>Python</div>
+              <div class="skill-chip"><span class="skill-icon">🌐</span>JavaScript</div>
+              <div class="skill-chip"><span class="skill-icon">🔖</span>HTML5</div>
+              <div class="skill-chip"><span class="skill-icon">🎨</span>CSS3</div>
+              <div class="skill-chip"><span class="skill-icon">🗄️</span>SQL</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="backend" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🟢</span>Django</div>
+              <div class="skill-chip"><span class="skill-icon">🔗</span>Django REST Framework</div>
+              <div class="skill-chip"><span class="skill-icon">📡</span>REST APIs</div>
+              <div class="skill-chip"><span class="skill-icon">🔐</span>Authentication & Authorization</div>
+              <div class="skill-chip"><span class="skill-icon">⚙️</span>API Development</div>
+              <div class="skill-chip"><span class="skill-icon">🔌</span>API Integration</div>
+              <div class="skill-chip"><span class="skill-icon">🏗️</span>Backend Architecture</div>
+              <div class="skill-chip"><span class="skill-icon">📦</span>CRUD Applications</div>
+              <div class="skill-chip"><span class="skill-icon">🏛️</span>MVT Architecture</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="frontend" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🔖</span>HTML5</div>
+              <div class="skill-chip"><span class="skill-icon">🎨</span>CSS3</div>
+              <div class="skill-chip"><span class="skill-icon">⚡</span>JavaScript ES6+</div>
+              <div class="skill-chip"><span class="skill-icon">📱</span>Responsive Design</div>
+              <div class="skill-chip"><span class="skill-icon">🖱️</span>DOM Manipulation</div>
+              <div class="skill-chip"><span class="skill-icon">📶</span>Fetch API</div>
+              <div class="skill-chip"><span class="skill-icon">🔄</span>AJAX</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="database" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🐬</span>MySQL</div>
+              <div class="skill-chip"><span class="skill-icon">📐</span>Database Design</div>
+              <div class="skill-chip"><span class="skill-icon">⚡</span>Query Optimization</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="ai" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">✍️</span>Prompt Engineering</div>
+              <div class="skill-chip"><span class="skill-icon">🔑</span>OpenAI API Integration</div>
+              <div class="skill-chip"><span class="skill-icon">⛓️</span>LangChain (Basic)</div>
+              <div class="skill-chip"><span class="skill-icon">🤖</span>AI-powered Applications</div>
+              <div class="skill-chip"><span class="skill-icon">🧠</span>LLM Integration</div>
+              <div class="skill-chip"><span class="skill-icon">📚</span>RAG</div>
+              <div class="skill-chip"><span class="skill-icon">⚙️</span>AI Workflow Automation</div>
+              <div class="skill-chip"><span class="skill-icon">💻</span>AI Coding Assistants</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="tools" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🌿</span>Git</div>
+              <div class="skill-chip"><span class="skill-icon">🐙</span>GitHub</div>
+              <div class="skill-chip"><span class="skill-icon">🤖</span>GitHub Copilot</div>
+              <div class="skill-chip"><span class="skill-icon">🧠</span>Claude AI</div>
+              <div class="skill-chip"><span class="skill-icon">💬</span>ChatGPT</div>
+              <div class="skill-chip"><span class="skill-icon">💻</span>VS Code</div>
+              <div class="skill-chip"><span class="skill-icon">📮</span>Postman</div>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-panel="swe" role="tabpanel" hidden>
+            <div class="skill-grid">
+              <div class="skill-chip"><span class="skill-icon">🧱</span>OOP</div>
+              <div class="skill-chip"><span class="skill-icon">🗂️</span>Data Structures</div>
+              <div class="skill-chip"><span class="skill-icon">📊</span>Algorithms</div>
+              <div class="skill-chip"><span class="skill-icon">🐛</span>Debugging</div>
+              <div class="skill-chip"><span class="skill-icon">✅</span>Software Testing</div>
+              <div class="skill-chip"><span class="skill-icon">🖥️</span>UI Automation Testing</div>
+              <div class="skill-chip"><span class="skill-icon">📡</span>API Testing</div>
+              <div class="skill-chip"><span class="skill-icon">🏗️</span>Basic System Design</div>
+              <div class="skill-chip"><span class="skill-icon">🔄</span>Agile Development</div>
+              <div class="skill-chip"><span class="skill-icon">✨</span>Clean Code</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Career Path</span>
+          <h2 id="experience-heading" class="section-title">Professional Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal-left">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-header">
+                <div class="timeline-meta">
+                  <span class="timeline-badge current">Current</span>
+                  <span class="timeline-date">Aug 2025 – Present</span>
+                </div>
+                <h3 class="timeline-role">Software Analyst</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Ideabytes</span>
+                  <span class="company-location">📍 Hyderabad</span>
+                </div>
+              </div>
+              <ul class="timeline-responsibilities">
+                <li>Served as primary QA for TaskRay (Salesforce), debugging backend issues and analyzing workflows to improve system stability.</li>
+                <li>Developed and maintained UI automation test scripts, increasing test coverage and reducing manual testing.</li>
+                <li>Collaborated with developers to improve backend workflows and analyze REST API behavior.</li>
+                <li>Worked closely with Business Analysts for requirement gathering, issue tracking, and defect reporting.</li>
+                <li>Assisted in backend enhancements and quality assurance throughout multiple release cycles.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag-sm">Salesforce</span>
+                <span class="tag-sm">QA</span>
+                <span class="tag-sm">REST APIs</span>
+                <span class="tag-sm">Automation Testing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-right">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-header">
+                <div class="timeline-meta">
+                  <span class="timeline-badge intern">Internship</span>
+                  <span class="timeline-date">Feb 2025 – Mar 2025</span>
+                </div>
+                <h3 class="timeline-role">Software Development Engineer Intern</h3>
+                <div class="timeline-company">
+                  <span class="company-name">Bluestock Fintech</span>
+                </div>
+              </div>
+              <ul class="timeline-responsibilities">
+                <li>Developed responsive user interfaces using HTML, CSS, and JavaScript.</li>
+                <li>Integrated frontend components with backend services.</li>
+                <li>Improved frontend responsiveness and optimized user interactions.</li>
+                <li>Converted business requirements into production-ready features.</li>
+                <li>Collaborated with developers in an Agile environment.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag-sm">HTML/CSS/JS</span>
+                <span class="tag-sm">Frontend</span>
+                <span class="tag-sm">Agile</span>
+                <span class="tag-sm">Fintech</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Featured Work</span>
+          <h2 id="projects-heading" class="section-title">Projects</h2>
+        </div>
+
+        <div class="project-featured reveal-up">
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <div class="mockup-url">spendwise.app</div>
+              </div>
+              <div class="mockup-screen">
+                <div class="mockup-sidebar">
+                  <div class="mockup-nav-item active-nav">Dashboard</div>
+                  <div class="mockup-nav-item">Expenses</div>
+                  <div class="mockup-nav-item">Budget</div>
+                  <div class="mockup-nav-item">Analytics</div>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-header-bar">
+                    <div class="mockup-title-text">Financial Dashboard</div>
+                    <div class="mockup-badge-live">● Live</div>
+                  </div>
+                  <div class="mockup-cards-row">
+                    <div class="mockup-mini-card">
+                      <div class="mockup-mini-label">Total Balance</div>
+                      <div class="mockup-mini-value accent">₹45,280</div>
+                    </div>
+                    <div class="mockup-mini-card">
+                      <div class="mockup-mini-label">This Month</div>
+                      <div class="mockup-mini-value red">₹12,450</div>
+                    </div>
+                    <div class="mockup-mini-card">
+                      <div class="mockup-mini-label">Savings</div>
+                      <div class="mockup-mini-value green">₹8,920</div>
+                    </div>
+                  </div>
+                  <div class="mockup-chart">
+                    <div class="chart-bar" style="--h:60%"></div>
+                    <div class="chart-bar" style="--h:80%"></div>
+                    <div class="chart-bar" style="--h:45%"></div>
+                    <div class="chart-bar" style="--h:90%"></div>
+                    <div class="chart-bar" style="--h:70%"></div>
+                    <div class="chart-bar" style="--h:55%"></div>
+                    <div class="chart-bar active-bar" style="--h:85%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-status">
+              <span class="status-dot"></span>
+              <span>Live in Production</span>
+            </div>
+            <h3 class="project-title">SpendWise</h3>
+            <p class="project-desc">A production-ready personal finance web application built independently from concept to deployment. Features a comprehensive financial dashboard with real-time expense tracking, budget management, and analytics.</p>
+            <div class="project-features">
+              <span class="feature-item">Expense Tracking</span>
+              <span class="feature-item">Budget Management</span>
+              <span class="feature-item">Financial Dashboard</span>
+              <span class="feature-item">Secure Authentication</span>
+              <span class="feature-item">REST APIs</span>
+              <span class="feature-item">Analytics</span>
+            </div>
+            <div class="project-stack">
+              <span class="stack-pill">Python</span>
+              <span class="stack-pill">Django</span>
+              <span class="stack-pill">DRF</span>
+              <span class="stack-pill">MySQL</span>
+              <span class="stack-pill">JavaScript</span>
+              <span class="stack-pill">HTML/CSS</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://raj-kalepu.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo ↗</a>
+              <a href="https://github.com/raj-kalepu" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education" aria-labelledby="education-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Academic Background</span>
+          <h2 id="education-heading" class="section-title">Education</h2>
+        </div>
+        <div class="edu-card glass-card reveal-up">
+          <div class="edu-icon" aria-hidden="true">🎓</div>
+          <div class="edu-content">
+            <div class="edu-degree">B.Tech in Mechanical Engineering</div>
+            <div class="edu-institution">Geethanjali College of Engineering and Technology</div>
+            <div class="edu-meta">
+              <span class="edu-year">📅 2021 – 2025</span>
+              <span class="edu-cgpa">CGPA: <strong>7.58</strong></span>
+            </div>
+            <p class="edu-note">Transitioned from Mechanical Engineering to Software Development through self-driven learning, building production-grade applications and gaining professional experience in backend and full-stack development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="blob blob-contact-1" aria-hidden="true"></div>
+      <div class="blob blob-contact-2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-eyebrow">Let's Connect</span>
+          <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Have an opportunity or project in mind? I'd love to hear from you.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal-left">
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:gowthamrajkalepu@gmail.com" class="contact-value">gowthamrajkalepu@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:+919963948588" class="contact-value">+91 9963948588</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-label">Location</div>
+                <span class="contact-value">Hyderabad, Telangana, India</span>
+              </div>
+            </div>
+            <div class="contact-socials">
+              <a href="https://linkedin.com/in/gowthamrajkalepu" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+              <a href="https://github.com/raj-kalepu" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+              <a href="https://raj-kalepu.github.io" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Portfolio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Portfolio
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form reveal-right" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="What is this about?" required />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-send" aria-label="Send message">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </span>
+            </button>
+            <div id="form-message" class="form-feedback" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">GRK</span>
+          <span class="footer-tagline">Software Developer · Hyderabad</span>
+        </div>
+        <div class="footer-copy">Designed & Developed by <span class="footer-name">Gowtham Raj Kalepu</span></div>
+        <div class="footer-socials">
+          <a href="https://github.com/raj-kalepu" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/gowthamrajkalepu" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:gowthamrajkalepu@gmail.com" class="footer-social" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 </html>
