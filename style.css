@@ -928,6 +928,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 8px;
 }
 
+.approx::before {
+    content: "~";
+}
+
 .stat-label {
   font-size: 0.85rem;
   font-weight: 600;
